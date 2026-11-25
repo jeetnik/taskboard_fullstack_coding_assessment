@@ -1,0 +1,11 @@
+**/target/
+/data/
+/node_modules/
+/.npm-cache/
+**/.next/
+**/.test-build/
+**/node_modules/
+**/*.tsbuildinfo
+**/.env.local
+.env
+.DS_Store

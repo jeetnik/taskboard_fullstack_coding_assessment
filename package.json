@@ -1,0 +1,16 @@
+{
+  "name": "taskboard",
+  "version": "0.1.0",
+  "private": true,
+  "workspaces": ["apps/web"],
+  "engines": { "node": ">=20.9" },
+  "scripts": {
+    "dev:api": "APP_DEV_MODE=1 cargo run -p taskboard-api",
+    "dev:web": "npm run dev --workspace @taskboard/web",
+    "build": "npm run build --workspace @taskboard/web",
+    "test": "cargo test --workspace && npm run test:web",
+    "test:web": "npm run test --workspace @taskboard/web",
+    "typecheck": "npm run typecheck --workspace @taskboard/web",
+    "validate": "node scripts/validate.mjs"
+  }
+}
