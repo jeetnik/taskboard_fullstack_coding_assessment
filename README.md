@@ -38,6 +38,26 @@ npm run dev:web
 
 The demo controls use the same API endpoints available through curl. The JWT is held in React state for the current page session. A full page reload signs the user out.
 
+## Screenshots
+
+These screens show a two-task demo. The automated validation covers five created tasks and three assigned to James Bond.
+
+### Sign in
+
+![Taskboard sign-in page with email, password, and local demo controls](docs/screenshots/sign-in.png)
+
+### Admin workspace
+
+![Admin dashboard with the task creation form and one assigned and one unassigned task](docs/screenshots/admin-tasks.png)
+
+### James Bond’s assigned tasks
+
+![James Bond’s task list with the Cache hit indicator](docs/screenshots/staff-tasks.png)
+
+### Staff creation denied
+
+![James Bond’s workspace showing the 403 Forbidden message after a task creation attempt](docs/screenshots/staff-forbidden.png)
+
 ## Validate using HTTP
 
 Use a fresh SQLite file. To run the HTTP validation independently of the browser flow, start the API with a separate path.
@@ -85,6 +105,8 @@ npm test
 ```
 
 The API suite sends requests through the Axum router with an isolated SQLite database per test. It covers login and code expiry, concurrent verification and replay, role permissions, input validation, assignment rollback, and per-user cache invalidation. The frontend suite checks API request handling with mocked responses and renders the task table and empty state. Both suites run without local servers.
+
+![Rust API test output showing 14 passed and zero failures, including the James Bond cache test](docs/screenshots/automated-tests.png)
 
 Run just the James Bond cache test with this command.
 
